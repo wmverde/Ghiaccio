@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ghiaccio</title>
+  </head>
+  <body>
+    <div class="container">
+      <audio id="audio" class="audio-player" controls>
+        <source src="/media/ghiaccio.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+
+    <script>
+      document.querySelector(".container").addEventListener("click", () => {
+        const audioContext = new AudioContext();
+        const player = document.querySelector("audio");
+        const source = audioContext.createMediaElementSource(player);
+        source.connect(audioContext.destination);
+        player.loop = true;
+        audioContext.resume();
+      });
+    </script>
+  </body>
+</html>
